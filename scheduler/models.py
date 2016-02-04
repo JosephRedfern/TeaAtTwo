@@ -32,6 +32,6 @@ class Location(models.Model):
     name = models.TextField(null=False)
 
 class Review(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, null=True)
     event = models.ForeignKey('Event')
     rating = models.FloatField()
