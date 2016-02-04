@@ -13,6 +13,7 @@ class Event(models.Model):
     confectionary = models.ForeignKey('Confectionary', null=True)
 
 class Confectionary(models.Model):
+    variety = models.ForeignKey('ConfectionaryType', null=True)
     flavour = models.ForeignKey('ConfectionaryFlavour', null=True)
     gluten_free = models.BooleanField(default=False)
     lactose_free = models.BooleanField(default=False)
@@ -20,6 +21,9 @@ class Confectionary(models.Model):
     
 class ConfectionaryType(models.Model):
     name = models.TextField()
+    
+    def __str__(self):
+        return self.name
 
 class ConfectionaryFlavour(models.Model):
     name = models.TextField()
