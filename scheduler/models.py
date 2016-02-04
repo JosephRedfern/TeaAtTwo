@@ -30,3 +30,8 @@ class ConfectionaryFlavour(models.Model):
 
 class Location(models.Model):
     name = models.TextField(null=False)
+
+class Review(models.Model):
+    user = models.ForeignKey(User)
+    event = models.ForeignKey('Event')
+    rating = models.FloatField()
